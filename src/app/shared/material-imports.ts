@@ -3,6 +3,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogActions, MatDialogContent } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 export const MATERIAL_MODULES = [
   MatToolbarModule,
@@ -10,4 +15,11 @@ export const MATERIAL_MODULES = [
   MatIconModule,
   MatButtonModule,
   MatTooltipModule,
+  MatDialogContent,
+  MatDialogActions,
+  MatInputModule,
+  MatFormFieldModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  
 ];
