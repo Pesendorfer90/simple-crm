@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 export const MATERIAL_MODULES = [
   MatToolbarModule,
@@ -21,5 +22,6 @@ export const MATERIAL_MODULES = [
   MatFormFieldModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatProgressBarModule,
   
 ];
