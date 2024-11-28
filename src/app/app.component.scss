@@ -14,7 +14,12 @@
     padding: 0 16px 0 16px;
     display: flex;
     align-items: center;
+    justify-content: center;
     min-height: 64px;
+
+    img {
+        height: 50px;
+    }
 }
 
 .menu-items {
@@ -45,5 +50,5 @@
 }
 
 .router-containere {
-    padding: 16px 0 0 56px;
+    padding: 16px 56px;
 }

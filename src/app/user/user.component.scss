@@ -3,3 +3,46 @@
     right: 56px;
     bottom: 56px;
 }
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+        border-bottom: 1px solid var(--mat-sys-outline);
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--mat-sys-surface-container-high);
+        }
+
+        &:first-child {
+            cursor: unset;
+
+            &:hover {
+                background-color: unset;
+            }
+        }
+
+        &:last-child {
+            border-bottom: 0px;
+        }
+
+        td:first-child {
+            padding-left: 16px;
+        }
+
+        th:first-child {
+            padding-left: 16px;
+        }
+    }
+
+    td,
+    th {
+        height: 48px;
+    }
+
+    th {
+        text-align: start;
+    }
+}

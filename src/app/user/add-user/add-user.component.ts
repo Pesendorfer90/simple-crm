@@ -2,9 +2,8 @@ import { Component, inject } from '@angular/core';
 import { MATERIAL_MODULES } from '../../shared/material-imports';
 import { User } from '../../model/user';
 import { FormsModule } from '@angular/forms';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData } from '@angular/fire/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
-
 @Component({
   selector: 'app-add-user',
   imports: [MATERIAL_MODULES, FormsModule],
@@ -21,7 +20,6 @@ export class AddUserComponent {
 
   async saveUser() {
     this.user.birthDate = this.birthDate.getTime();
-    console.log('user', this.user);
     this.loading = true;
 
     const userCollection = collection(this.firestore, 'user');
@@ -34,5 +32,5 @@ export class AddUserComponent {
     } catch (error) {
       console.error('Error adding user:', error);
     }
-  }
+  }  
 }
