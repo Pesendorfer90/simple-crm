@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MATERIAL_MODULES } from '../../shared/material-imports';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
@@ -9,4 +10,12 @@ import { MATERIAL_MODULES } from '../../shared/material-imports';
 })
 export class UserDetailComponent {
 
+  userId = '';
+
+  constructor(private route:ActivatedRoute) {
+    this.route.paramMap.subscribe( paramMap => {
+      this.userId = paramMap.get('id');
+      console.log('GOT ID', this.userId);
+  })
+  }
 }
