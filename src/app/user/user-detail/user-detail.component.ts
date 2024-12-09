@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MATERIAL_MODULES } from '../../shared/material-imports';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../service/data.service';
 import { User } from '../../model/user';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogEditAdressComponent } from './dialog-edit-adress/dialog-edit-adress.component';
+import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 
 @Component({
   selector: 'app-user-detail',
-  imports: [MATERIAL_MODULES ],
+  imports: [MATERIAL_MODULES],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
 export class UserDetailComponent {
+
+  readonly dialog = inject(MatDialog);
 
   userId: string | null = '';
   userIdstring: string = this.userId ?? 'default string';
@@ -35,8 +40,16 @@ export class UserDetailComponent {
     });
   }
 
+
+  openUserDialog() {
+    const dialog = this.dialog.open(DialogEditUserComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
+  }
+
   openAdressDialog() {
-    console.log('works');
-    
+    const dialog = this.dialog.open(DialogEditAdressComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
   }
 }

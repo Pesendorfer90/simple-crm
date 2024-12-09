@@ -10,6 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 export const MATERIAL_MODULES = [
@@ -26,5 +27,6 @@ export const MATERIAL_MODULES = [
   MatNativeDateModule,
   MatProgressBarModule,
   MatCardModule,
-
+  MatMenuModule,
+  
 ];
