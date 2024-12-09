@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, query, collectionData } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, docData } from '@angular/fire/firestore';
+import { doc } from 'firebase/firestore';
 import { Observable, subscribeOn } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  constructor(private firestore: Firestore) {}
-
+  constructor(private firestore: Firestore) { }
 
   getData(collectionName: string): Observable<any[]> {
     // Sammlung referenzieren
     const userCollection = collection(this.firestore, collectionName);
-    console.log('CollectionReference:', userCollection); // Debugging-Log
-
-    // Query erstellen
-    const q = query(userCollection);
-    console.log('Query:', q); // Debugging-Log
-
-    // Echtzeitdaten abrufen
-    return collectionData(q, { idField: 'id' });
+    // Echtzeitdaten direkt abrufen, ohne Query
+    return collectionData(userCollection, { idField: 'id' });
   }
+  
+  getUserById(collectionName: string, docId: string): Observable<any> {
+    // Referenz auf das Dokument
+    const documentRef = doc(this.firestore, `${collectionName}/${docId}`);
+    // Echtzeitdaten für das Dokument abrufen
+    return docData(documentRef, { idField: 'id' });
+  }
+  
 }
