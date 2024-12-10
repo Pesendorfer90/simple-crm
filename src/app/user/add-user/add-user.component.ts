@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { MATERIAL_MODULES } from '../../shared/material-imports';
 import { User } from '../../model/user';
 import { FormsModule } from '@angular/forms';
-import { Firestore, collection, addDoc, collectionData } from '@angular/fire/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../../service/data.service';
 @Component({
@@ -14,7 +13,6 @@ import { DataService } from '../../service/data.service';
 export class AddUserComponent {
 
   readonly dialogRef = inject(MatDialogRef<AddUserComponent>);
-  firestore: Firestore = inject(Firestore);
   user: User = new User();
   birthDate: Date = new Date();
   loading: boolean = false;

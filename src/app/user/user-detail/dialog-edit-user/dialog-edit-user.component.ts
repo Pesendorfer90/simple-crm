@@ -15,7 +15,7 @@ export class DialogEditUserComponent {
 
   readonly dialogRef = inject(MatDialogRef<DialogEditUserComponent>);
 
-  user!: User;
+  user: User = new User;
   userId: string | null = '';
   loading: boolean = false;
   birthDate!: Date;

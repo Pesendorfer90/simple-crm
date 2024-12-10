@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserDetailComponent } from './user-detail.component';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { DataService } from '../../service/data.service';
+import { of } from 'rxjs';
 
 describe('UserDetailComponent', () => {
   let component: UserDetailComponent;
@@ -9,7 +11,14 @@ describe('UserDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserDetailComponent, RouterModule.forRoot([])]
+      imports: [UserDetailComponent, RouterModule.forRoot([])],
+      providers: [ {
+        provide: DataService,
+        useValue: {
+          // Mock-Methode des DataService
+          getData: jasmine.createSpy('getData').and.returnValue(of([])),
+        },
+      },],
     })
     .compileComponents();
 

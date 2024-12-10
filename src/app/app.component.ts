@@ -9,5 +9,4 @@ import { MATERIAL_MODULES } from './shared/material-imports';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'CRM';
 }

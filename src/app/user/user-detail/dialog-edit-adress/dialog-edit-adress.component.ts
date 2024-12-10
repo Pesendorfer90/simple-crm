@@ -15,7 +15,7 @@ export class DialogEditAdressComponent {
 
   readonly dialogRef = inject(MatDialogRef<DialogEditAdressComponent>);
 
-  user!: User;
+  user: User = new User;
   userId: string | null = '';
   loading: boolean = false;
 
